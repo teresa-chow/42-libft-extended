@@ -6,15 +6,13 @@
 /*   By: tchow-so <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 09:23:49 by tchow-so          #+#    #+#             */
-/*   Updated: 2024/01/03 11:26:10 by tchow-so         ###   ########.fr       */
+/*   Updated: 2024/03/29 15:16:07 by tchow-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* This project is about programming a function that returns a line read
 from a file descriptor. */
 
-//#include <stdio.h>
-//#include <fcntl.h> // O_RDONLY
 #include "get_next_line.h"
 
 char	*read_from_fd(char *str, int fd);
@@ -125,48 +123,3 @@ char	*clear_line(char *str)
 	free(str);
 	return (tmp);
 }
-// PROGRAM MAIN FUNCTION (testing)
-/*int	main(void)
-{
-	int		fd;
-	char	*str;
-	
-	fd = open("file.txt", O_RDONLY);
-	while((str = get_next_line(fd)))
-	{
-		printf("%s", str);
-		free(str);
-	}
-	return (close(fd));
-}*/
-// GET NEXT LINE
-/* 	1. checks vality of fd and BUFFER_SIZE values;
-	2. reads BUFFER_SIZE bytes from file (identified by its descriptor, fd)
-		2.1. allocates memory space to buffer
-			(pre-defined macro BUFFER_SIZE + 1);
-		2.2. checks for successful memory allocation;
-		2.3. checks if newline character is found, and if there are
-			still bytes to be read, otherwise frees memory;
-		2.4. null-terminates buffer;
-		2.5. joins buffer-sized strings to 'str' until newline
-			character is found;
-		2.6. frees 'buffer'';
-		2.7. returns 'str' (start to end of line);
-	3. gets line from str
-		3.1. checks for empty str;
-		3.2. increments index 'i' until newline character or
-			null-terminator	is found;
-		3.3. allocates memory according to scenario (+1 for '\0',
-			+2 for '\n\0');
-		3.4. copies str;
-	4. clears previous line
-		4.1. increments 'str' index until finding newline character;
-		4.2. checks for 'str';
-		4.3. allocates memory to temporary variable 'tmp';
-		4.4. checks successful memory allocation;
-		4.5. copies 'str' content after newline character is found
-			to 'tmp';
-		4.6. null-terminates 'tmp';
-		4.7. frees 'str';
-		4.8. returns 'tmp';
-	5. returns line */
