@@ -33,7 +33,7 @@ BONUS	= $(addprefix $(LIBFT_PATH)/, ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
 
 FTPRINTF_PATH = ./ft_printf
 FTPRINTF_SRC	= $(addprefix $(FTPRINTF_PATH)/, ft_printf.c ft_printchar.c \
-	ftprintstr.c ft_printptr.c ft_printint.c)
+	ft_printstr.c ft_printptr.c ft_printint.c)
 
 GNL_PATH = ./get_next_line
 GNL_SRC		= $(addprefix $(GNL_PATH)/, get_next_line.c get_next_line_utils.c)
