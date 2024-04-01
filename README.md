@@ -1,5 +1,5 @@
 # Libft (extended)
-![42 School: Rank 0](https://img.shields.io/badge/42%20School-Rank%200-%2315bbbb)
+![42 School: n.a.](https://img.shields.io/badge/42%20School-n.a.-%2315bbbb)
 
 _This is my current extended version of Libft, the first project of the Common Core curriculum at 42. It currently includes a simplified recoded version of printf (ft_printf) and get_next_line._
 ___
