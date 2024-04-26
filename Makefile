@@ -6,7 +6,7 @@
 #    By: tchow-so <tchow-so@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/03 16:14:04 by tchow-so          #+#    #+#              #
-#    Updated: 2024/04/19 15:14:55 by tchow-so         ###   ########.fr        #
+#    Updated: 2024/03/26 16:07:32 by tchow-so         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ GNL_PATH = ./get_next_line
 GNL_SRC		= $(addprefix $(GNL_PATH)/, get_next_line.c get_next_line_utils.c)
 
 BUILD_PATH = .build
+OBJS		= $(LIBFT_OBJS) $(FTPRINTF_OBJS) $(GNL_OBJS)
 LIBFT_OBJS	= $(addprefix $(BUILD_PATH)/, $(notdir $(LIBFT_SRC:.c=.o)))
 FTPRINTF_OBJS	= $(addprefix $(BUILD_PATH)/, $(notdir $(FTPRINTF_SRC:.c=.o)))
 GNL_OBJS	= $(addprefix $(BUILD_PATH)/, $(notdir $(GNL_SRC:.c=.o)))
@@ -61,6 +62,9 @@ MKDIR	= mkdir -p
 
 all: $(NAME)
 
+$(NAME): $(BUILD_PATH) $(OBJS)
+	$(AR) $(NAME) $(OBJS)
+
 $(BUILD_PATH):
 	$(MKDIR) $(BUILD_PATH)
 
@@ -73,11 +77,8 @@ $(BUILD_PATH)/%.o: $(FTPRINTF_PATH)/%.c
 $(BUILD_PATH)/%.o: $(GNL_PATH)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): $(BUILD_PATH) $(LIBFT_OBJS) $(FTPRINTF_OBJS) $(GNL_OBS)
-	$(AR) $(NAME) $(LIBFT_OBJS) $(FTPRINTF_OBJS) $(GNL_OBJS)
-
 clean:	
-	$(RM) $(LIBFT_OBJS) $(FTPRINTF_OBJS) $(GNL_OBJS)
+	$(RM) $(OBJS)
 
 fclean: clean
 	$(RM) $(NAME)
