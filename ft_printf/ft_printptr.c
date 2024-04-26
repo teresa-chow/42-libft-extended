@@ -27,10 +27,8 @@ int	ft_printptr(unsigned long n)
 static void	ft_printhex(unsigned long n)
 {
 	char	*symbols;
-	int		count;
 
 	symbols = "0123456789abcdef";
-	count = 0;
 	if (n < 16)
 		ft_printchar(symbols[n]);
 	else
