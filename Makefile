@@ -78,11 +78,10 @@ $(BUILD_PATH)/%.o: $(GNL_PATH)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:	
-	$(RM) $(OBJS)
+	$(RM) $(BUILD_PATH)
 
 fclean: clean
 	$(RM) $(NAME)
-	$(RM) $(BUILD_PATH)
 
 re: fclean all
 
